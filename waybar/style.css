@@ -1,0 +1,218 @@
+@import "mocha.css";
+
+
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: /*"Noto Sans CJK KR Regular"*/ "Caskadia Code NF";
+  font-size: 13px;
+  min-height: 0;
+  font-weight: bold;
+}
+
+window#waybar {
+  background: @base;
+  /*    background-color: rgba(43, 48, 59, 0.5); */
+  /*    border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#waybar.empty #window {
+  background-color: transparent;
+}
+
+#workspaces {
+}
+
+#window {
+  margin-top: 0px;
+  margin-left: 0px;
+  padding-left: 8px;
+  padding-right: 8px;
+  color: @text;
+  background-color: @base;
+  font-size:14px;
+  font-weight: bold;
+  border-radius: 12px;
+}
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+}
+
+#workspaces button {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  background-color: @base;
+  border-radius: 12px;
+  margin-left: 3px;
+  margin-top: 0px;
+  color: @text;
+}
+
+#workspaces button:hover {
+	color: @blue;
+}
+
+#workspaces button.active {
+  /*    box-shadow: inset 0 -2px #c9545d; */
+  color: @blue;
+}
+
+
+button.focused {
+  background-color: @blue;
+}
+
+#workspaces button.urgent {
+  color: @red;
+  border-radius: 0px;
+}
+
+#mode {
+  background-color: #64727D;
+  border-bottom: 3px solid #ffffff;
+}
+
+#battery {
+  margin-top: 0px;
+  padding-left: 6px;
+  padding-right: 12px;
+  background-color: @base;
+  color: @text;
+  border-radius: 0px;
+}
+
+#clock,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+  margin-top: 0px;
+  padding-left: 6px;
+  padding-right: 6px;
+  background-color: @base;
+  color: @text;
+  border-radius: 0px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+#clock {
+  font-size:14px;
+  font-weight: bold;
+}
+
+#battery icon {
+  color: red;
+}
+
+#battery.charging, #battery.plugged {
+  color: @blue;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+#battery.warning:not(.charging) {
+  background-color: @base;
+  color: @yellow;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+  background-color: @base;
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#network.disconnected {
+  background-color: #f53c3c;
+}
+
+#temperature.critical {
+  color: @red;
+}
+
+#idle_inhibitor.activated {
+  background-color: #ecf0f1;
+  color: #2d3436;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+  margin-right: 0px;
+}
+
+#tray {
+margin-right: 0px;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #81a1c1;
+  margin-right: 4px;
+}
+
+/*
+
+window#waybar.solo {
+background-color: #FFFFFF;
+}
+
+window#waybar.termite {
+background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+background-color: #000000;
+border: none;
+}
+ */
