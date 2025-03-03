@@ -234,7 +234,6 @@ bindsym mod1+x exec rofi -show run
 bindsym mod1+c exec rofi -show calc
 bindsym mod1+s exec rofi -show filebrowser -modi filebrowser
 bindsym $mod+Shift+s exec thunar
-bindsym $mod+Shift+d exec /home/olaf/Desktop/modrinth.AppImage
 bindsym $mod+Shift+l exec rofi -show power-menu -modi power-menu:rofi-power-menu
 bindsym $mod+Shift+a exec xkill
 
@@ -247,8 +246,6 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id lxqt-policykit-agent 
 exec_always --no-startup-id xfce4-power-manager 
 exec_always --no-startup-id plasmashell
-#exec_always --no-startup-id python /home/olaf/build-git/i3-dynamic-backgrounds/main.py -t 5 ~/Pictures/
-#exec_always --no-startup-id xfce4-panel &
 
 # finds out, if available)
 bar {
